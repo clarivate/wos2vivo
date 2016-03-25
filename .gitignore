@@ -1,0 +1,5 @@
+*.pyc
+tool.py
+#environment variables
+.env
+.idea/*
