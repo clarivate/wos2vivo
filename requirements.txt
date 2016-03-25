@@ -1,3 +1,4 @@
 rdflib
 nameparser
 requests
+click
