@@ -38,12 +38,12 @@ class TestQuery(TestCase):
         )
 
     def test_query_by_span(self):
-        tspan = {"start": "2015-09-01", "end": "2015-11-31"}
+        tspan = {"begin": "2015-09-01", "end": "2015-11-31"}
         wq = Query("peanut allergy", span=tspan).to_string()
         tree = ET.fromstring(wq)
         self.assertEqual(
             tree.find(".//timeSpan/begin").text,
-            tspan['start']
+            tspan['begin']
         )
         self.assertEqual(
             tree.find(".//timeSpan/end").text,
