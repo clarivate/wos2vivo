@@ -88,7 +88,7 @@ class Query(object):
                 Exception("Both start and end are required for time span queries.")
             ts = ET.Element('timeSpan')
             begin = ET.Element('begin')
-            begin.text = span['start']
+            begin.text = span['begin']
             end = ET.Element('end')
             end.text = span['end']
             ts.append(begin)
