@@ -17,8 +17,20 @@ from record import Record
 
 class WoSSession(Session):
 
+    def __init__(self, login=True):
+        """
+        Pass login=False to not authenticate when the session
+        is created. This is only used in testing.
+
+        :param login: boolean
+        :return: WoSSession
+        """
+        super(WoSSession, self).__init__()
+        self.login = login
+
     def __enter__(self):
-        self.authenticate()
+        if self.login is True:
+            self.authenticate()
         return self
 
     def __exit__(self, type, value, tb):
