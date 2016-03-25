@@ -70,7 +70,11 @@ class QueryResponse(object):
     def __init__(self, response_text):
         root = ET.fromstring(response_text)
         qrsp = root.find('.//return')
-        self.query_id = qrsp.find('queryId').text
+        # If we can't find a queryId then the query failed.
+        try:
+            self.query_id = qrsp.find('queryId').text
+        except AttributeError:
+            raise Exception(response_text)
         self.found = int(qrsp.find('recordsFound').text)
         self.records = [Record(r) for r in qrsp.findall('records')]
         self.number = len(self.records)
