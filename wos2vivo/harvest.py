@@ -45,3 +45,12 @@ def get_publications(query, weeks=None, span=None, batch_size=100):
             if retrieve_response.number < batch_size:
                 break
             queries += 1
+
+
+def get_publications_for_org(org_name, weeks=None, span=None, batch_size=100):
+    return get_publications(
+        "OG={}".format(org_name),
+        weeks=weeks,
+        span=span,
+        batch_size=batch_size
+    )
