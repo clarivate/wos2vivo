@@ -300,6 +300,7 @@ class Record(object):
         # links
         web_link, linkg = self.add_vcard_weblink()
         g += linkg
+        # relate web link and publication
         g.add((self.pub_uri, OBO['ARG_2000028'], web_link))
 
         return g
