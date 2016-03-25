@@ -1,6 +1,10 @@
 ##wos2vivo
 
-Mapping publications from the Web of Science™ via [Web Services Lite](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/WebServicesLiteOverviewGroup/Introduction.html) to [VIVO](http://vivoweb.org)
+Mapping publications from the Web of Science™ via [Web Services](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/WebServicesLiteOverviewGroup/Introduction.html) to [VIVO](http://vivoweb.org)
+
+This requires access to the Web of Science Web Services. If you work at an organization
+that subscribes to the Web of Science and would like a username and password to use the
+Web Services, please email `research.networking@thomsonreuters.com`.
 
 
 ###usage
@@ -26,4 +30,19 @@ $ cp .env.sample .env
 $ source .env
 ```
 
+* Modify `example.py`
+This example shows how the web service can be called. A user query and time span is required.
+A `record.py` object will be returned. To convert to VIVO rdf call the `to_rdf` method.
 
+###development
+
+#### running the tests
+```
+$ python -m unittest discover tests/
+```
+
+Tests will use [Betamax](http://betamax.readthedocs.org/en/latest/configuring.html) to record
+HTTP interactions. This allows us to run the tests without actually hitting the web service and
+to keep the sample data stable.
+
+Feedback, bug reports and pull requests welcome.
