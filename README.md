@@ -2,9 +2,7 @@
 
 Mapping publications from the Web of Science™ via [Web Services](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/WebServicesLiteOverviewGroup/Introduction.html) to [VIVO](http://vivoweb.org)
 
-This requires access to the Web of Science Web Services. If you work at an organization
-that subscribes to the Web of Science and would like a username and password to use the
-Web Services, please email `research.networking@thomsonreuters.com`.
+This requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
 
 ###usage
@@ -31,6 +29,7 @@ $ source .env
 ```
 
 * Modify `example.py`
+
 This example shows how the web service can be called. A user query and time span is required.
 A `record.py` object will be returned. To convert to VIVO rdf call the `to_rdf` method.
 
