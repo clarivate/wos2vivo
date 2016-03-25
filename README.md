@@ -35,7 +35,10 @@ A `record.py` object will be returned. To convert to VIVO rdf call the `to_rdf` 
 
 ###development
 
+
 #### running the tests
+Install test dependencies first with `pip install -r tests/dev_requirements.txt`.
+
 ```
 $ python -m unittest discover tests/
 ```
