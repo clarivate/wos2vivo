@@ -175,7 +175,7 @@ class Record(object):
 
         venue = Resource(g, uri)
         venue.set(RDF.type, vtype)
-        venue.set(RDFS.label, Literal(self.venue))
+        venue.set(RDFS.label, Literal(self.venue()))
         if vtype == BIBO.Journal:
             venue.set(BIBO.issn, Literal(issn))
         else:
