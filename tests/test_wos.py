@@ -24,7 +24,7 @@ with betamax.Betamax.configure() as config:
 
 from wos2vivo.client import WoSSession, QueryResponse
 from wos2vivo.query import Query
-from wos2vivo.record import BIBO, VIVO, VCARD
+from wos2vivo.record import BIBO, OBO, VIVO, VCARD
 
 from rdflib import RDFS, Literal
 
@@ -64,6 +64,10 @@ class TestWos(TestCase):
             uri = rec.pub_uri
             g = rec.to_rdf()
             self.assertEqual(
+                g.value(subject=uri, predicate=VIVO.identifier),
+                Literal("WOS:000370312100013")
+            )
+            self.assertEqual(
                 g.value(subject=uri, predicate=RDFS.label),
                 Literal("Select Synch and Co-Synch protocols using a CIDR yield similar pregnancy rates after a fixed-time insemination in suckled Bos indicus x Bos taurus cows")
             )
@@ -83,5 +87,21 @@ class TestWos(TestCase):
                                initNs=(dict(vivo=VIVO, vcard=VCARD))
                                ):
                 assert row.authors.toPython() == 5
+
+            # web link
+            for row in g.query("""
+                select ?url
+                where {
+                    ?pub obo:ARG_2000028 ?vci .
+                    ?vci vcard:hasURL ?vurl .
+                    ?vurl vcard:url ?url .
+                }""",
+                               initBindings=dict(pub=uri),
+                               initNs=(dict(obo=OBO, vcard=VCARD))
+                               ):
+                self.assertEqual(
+                    row.url.toPython(),
+                    "http://ws.isiknowledge.com/cps/openurl/service?url_ver=Z39.88-2004&rft_id=info:ut/WOS:{}".format(rec.ut())
+                )
 
             session.close()

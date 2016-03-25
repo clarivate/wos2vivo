@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Read WoS records and map to VIVO.
 """
@@ -12,6 +13,7 @@ from nameparser import HumanName
 D = Namespace(os.environ['DATA_NAMESPACE'])
 VIVO = Namespace('http://vivoweb.org/ontology/core#')
 BIBO = Namespace('http://purl.org/ontology/bibo/')
+OBO = Namespace('http://purl.obolibrary.org/obo/')
 VCARD = Namespace('http://www.w3.org/2006/vcard/ns#')
 
 
@@ -20,6 +22,7 @@ class Record(object):
     Parse the XML returned by the WoS API.
     Convert to VIVO RDF with to_rdf.
     """
+
     def __init__(self, element):
         self.root = element
 
@@ -232,6 +235,28 @@ class Record(object):
 
         return g
 
+    def add_vcard_weblink(self):
+        """
+        Build statements for weblinks in VIVO.
+        :return: rdflib.Graph
+        """
+        base_url = "http://ws.isiknowledge.com/cps/openurl/service?url_ver=Z39.88-2004&rft_id=info:ut/WOS:{}"
+        g = Graph()
+
+        # vcard individual for pub
+        vci_uri = D['vcard-individual-pub-' + self.localid]
+        g.add((vci_uri, RDF.type, VCARD.Individual))
+
+        # vcard URL
+        vcu_uri = D['vcard-url-pub-' + self.localid]
+        g.add((vcu_uri, RDF.type, VCARD.URL))
+        g.add((vcu_uri, RDFS.label, Literal(u"Web of Science™")))
+        g.add((vcu_uri, VCARD.url, Literal(base_url.format(self.ut()))))
+
+        # Relate vcard individual to url
+        g.add((vci_uri, VCARD.hasURL, vcu_uri))
+        return vci_uri, g
+
     def to_rdf(self):
         """
         Convert the API publication object to VIVO RDF.
@@ -242,6 +267,9 @@ class Record(object):
         pub = Resource(g, self.pub_uri)
         pub.set(RDF.type, self.vivo_type())
         pub.set(RDFS.label, Literal(self.title()))
+        # WoS UT. Map to VIVO.identifier for now.
+        # ToDo: this should be a more specific property
+        pub.set(VIVO.identifier, Literal(self.ut()))
         # DOI
         doi = self.doi()
         if doi is not None:
@@ -268,6 +296,11 @@ class Record(object):
 
         # authorship and vcards
         g += self.authorship()
+
+        # links
+        web_link, linkg = self.add_vcard_weblink()
+        g += linkg
+        g.add((self.pub_uri, OBO['ARG_2000028'], web_link))
 
         return g
 
