@@ -5,14 +5,14 @@ Example usage.
 import logging
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
-from harvest import get_publications
+from wos2vivo.harvest import get_publications
 from rdflib import Graph
 
 g = Graph()
 
 org_name = "University of Florida"
 
-tspan = dict(begin="2016-03-01", end="2016=03-14")
+tspan = dict(begin="2016-03-01", end="2016-03-14")
 
 for pub in get_publications(
         "OG={}"

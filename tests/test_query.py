@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from query import Query, Retrieve
+from wos2vivo.query import Query, Retrieve
 
 import xml.etree.ElementTree as ET
 

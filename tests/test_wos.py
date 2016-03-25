@@ -22,10 +22,11 @@ with betamax.Betamax.configure() as config:
     config.cassette_library_dir = os.path.join(TEST_PATH, 'fixtures')
 
 
-from wos import WoSSession, QueryResponse
-from query import Query
+from wos2vivo.wos import WoSSession, QueryResponse
+from wos2vivo.query import Query
+from wos2vivo.record import BIBO, VIVO, VCARD
+
 from rdflib import RDFS, Literal
-from record import BIBO, VIVO, VCARD
 
 
 class TestWos(TestCase):
