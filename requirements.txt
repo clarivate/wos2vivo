@@ -1,0 +1,6 @@
+rdflib
+nameparser
+requests
+# For unit tests only
+betamax
+betamax_serializers
