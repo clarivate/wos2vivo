@@ -19,6 +19,7 @@ with betamax.Betamax.configure() as config:
     base64.b64encode("%s:%s" % (os.environ['WOS_USER'], os.environ['WOS_PASSWORD']))
     )
     config.default_cassette_options['serialize_with'] = 'prettyjson'
+    config.cassette_library_dir = os.path.join(TEST_PATH, 'fixtures')
 
 
 from wos import WoSSession, QueryResponse
@@ -33,7 +34,7 @@ class TestWos(TestCase):
         session = WoSSession(login=False)
 
         # Setup HTTP session recording
-        recorder = betamax.Betamax(session, cassette_library_dir='fixtures')
+        recorder = betamax.Betamax(session)
 
         with recorder.use_cassette('query',  record='once'):
             # Login
