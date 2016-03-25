@@ -8,7 +8,7 @@ from record import (
 )
 
 
-def output_graph(graph, format="turtle"):
+def output_graph(graph, destination=None, format="turtle"):
     """
     Helper to output graph with namespaces bound.
     """
@@ -17,4 +17,4 @@ def output_graph(graph, format="turtle"):
     graph.bind("vcard", VCARD)
     graph.bind("obo", OBO)
     graph.bind("bibo", BIBO)
-    return graph.serialize(format=format)
+    return graph.serialize(destination=destination, format=format)
