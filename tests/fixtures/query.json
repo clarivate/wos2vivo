@@ -1,0 +1,78 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2016-03-25T15:24:33",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n    xmlns:auth=\"http://auth.cxf.wokmws.thomsonreuters.com\">\n  <soapenv:Header/>\n   <soapenv:Body>\n \t<auth:authenticate/>\n </soapenv:Body>\n</soapenv:Envelope>\n"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
+          "Authorization": "Basic <base64 encoded WoS username:password>",
+          "Connection": "keep-alive",
+          "Content-Length": "235",
+          "User-Agent": "python-requests/2.7.0 CPython/2.7.6 Linux/3.13.0-24-generic"
+        },
+        "method": "POST",
+        "uri": "http://search.webofknowledge.com/esti/wokmws/ws/WOKMWSAuthenticate?wsdl"
+      },
+      "response": {
+        "body": {
+          "encoding": "ISO-8859-1",
+          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:authenticateResponse xmlns:ns2=\"http://auth.cxf.wokmws.thomsonreuters.com\"><return>3W7UUv1qCwW8ZMinnNS</return></ns2:authenticateResponse></soap:Body></soap:Envelope>"
+        },
+        "headers": {
+          "content-length": "252",
+          "content-type": "text/xml;charset=ISO-8859-1",
+          "date": "Fri, 25 Mar 2016 15:24:34 GMT",
+          "server": "Apache-Coyote/1.1",
+          "set-cookie": "SID=3W7UUv1qCwW8ZMinnNS"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "http://search.webofknowledge.com/esti/wokmws/ws/WOKMWSAuthenticate?wsdl"
+      }
+    },
+    {
+      "recorded_at": "2016-03-25T15:24:33",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:woksearchlite=\"http://woksearchlite.v3.wokmws.thomsonreuters.com\">\n   <soapenv:Header />\n   <soapenv:Body>\n      <woksearchlite:search>\n         <queryParameters>\n         <databaseId>WOS</databaseId><userQuery>OG=\"University of Florida\"</userQuery><timeSpan><begin>2016-03-15</begin><end>2016-03-15</end></timeSpan><queryLanguage>en</queryLanguage></queryParameters>\n         <retrieveParameters>\n         <firstRecord>1</firstRecord><count>1</count></retrieveParameters>\n      </woksearchlite:search>\n   </soapenv:Body>\n</soapenv:Envelope>"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
+          "Connection": "keep-alive",
+          "Content-Length": "623",
+          "Cookie": "SID=3W7UUv1qCwW8ZMinnNS",
+          "User-Agent": "python-requests/2.7.0 CPython/2.7.6 Linux/3.13.0-24-generic"
+        },
+        "method": "POST",
+        "uri": "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite?wsdl"
+      },
+      "response": {
+        "body": {
+          "encoding": "ISO-8859-1",
+          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:searchResponse xmlns:ns2=\"http://woksearchlite.v3.wokmws.thomsonreuters.com\"><return><queryId>1</queryId><recordsFound>3</recordsFound><recordsSearched>2534</recordsSearched><records><uid>WOS:000370312100013</uid><title><label>Title</label><value>Select Synch and Co-Synch protocols using a CIDR yield similar pregnancy rates after a fixed-time insemination in suckled Bos indicus x Bos taurus cows</value></title><source><label>Issue</label><value>5</value></source><source><label>Pages</label><value>870-876</value></source><source><label>Published.BiblioDate</label><value>MAR 15</value></source><source><label>Published.BiblioYear</label><value>2016</value></source><source><label>SourceTitle</label><value>THERIOGENOLOGY</value></source><source><label>Volume</label><value>85</value></source><authors><label>Authors</label><value>Esterman, Regina D.</value><value>Alava, Erin N.</value><value>Austin, Brad R.</value><value>Hersom, Matthew J.</value><value>Yelich, Joel V.</value></authors><keywords><label>Keywords</label><value>Artificial insemination</value><value>Beef</value><value>Bos indicus</value><value>Controlled internal drug release</value><value>Estrous synchronization</value></keywords><other><label>Contributor.ResearcherID.Names</label><value>Padovani, Carlos Roberto</value></other><other><label>Contributor.ResearcherID.ResearcherIDs</label><value>A-3656-2013</value></other><other><label>Identifier.Doi</label><value>10.1016/j.theriogenology.2015.10.035</value></other><other><label>Identifier.Eissn</label><value>1879-3231</value></other><other><label>Identifier.Ids</label><value>DE0JV</value></other><other><label>Identifier.Issn</label><value>0093-691X</value></other><other><label>ResearcherID.Disclaimer</label><value>ResearcherID data provided by Thomson Reuters</value></other></records></return></ns2:searchResponse></soap:Body></soap:Envelope>"
+        },
+        "headers": {
+          "content-length": "1964",
+          "content-type": "text/xml;charset=ISO-8859-1",
+          "date": "Fri, 25 Mar 2016 15:24:34 GMT",
+          "server": "Apache-Coyote/1.1"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite?wsdl"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.5.1"
+}
