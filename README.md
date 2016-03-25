@@ -4,6 +4,13 @@ Mapping publications from the Web of Science™ via [Web Services](http://ipscie
 
 This requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
+### use case support
+This toolkit supports the following:
+- querying the Web of Science to find publications for a given organization using the [Organization Enhanced](https://images.webofknowledge.com/WOKRS511B5/help/WOS/hp_organizations_enhanced_index.html) name
+- specifying a date range for publications to retrieve
+- mapping this data to VIVO's RDF for loading into VIVO
+
+If you want use this code as a client to the Web of Science, feel free to explore the code base but the API is very likely to change.
 
 ###usage
 
