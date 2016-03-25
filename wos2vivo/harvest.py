@@ -1,7 +1,7 @@
 import logging
 logger = logging.getLogger(__name__)
 
-from wos import WoSSession, QueryResponse
+from client import WoSSession, QueryResponse
 from query import Query, Retrieve
 
 
