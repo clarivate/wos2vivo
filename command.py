@@ -11,6 +11,7 @@ import click
 from rdflib import Graph
 
 from wos2vivo.harvest import get_publications_for_org
+from wos2vivo.utils import output_graph
 
 
 def console(msg):
@@ -26,7 +27,7 @@ def valid_span(begin, end):
     return dict(begin=begin, end=end)
 
 
-def get_triples(org, weeks=1, span=None, format="nt"):
+def get_triples(org, weeks=1, span=None, format="turtle"):
     g = Graph()
     if span is not None:
         records = get_publications_for_org(org, span=span)
@@ -37,7 +38,7 @@ def get_triples(org, weeks=1, span=None, format="nt"):
         g += rec.to_rdf()
 
     console("{} records found for query. {} triples created.".format(num or 0, len(g)))
-    print g.serialize(format=format)
+    print output_graph(g, format=format)
 
 
 @click.command(help="Argument is the organization enhanced name from the Web of Science")
@@ -45,7 +46,7 @@ def get_triples(org, weeks=1, span=None, format="nt"):
 @click.option('--weeks', default="1", type=click.Choice(["1", "2", "4"]), help='Number of previous weeks to search Web of Science.')
 @click.option('--begin', default=None, help="Start date for time span search, e.g. 2016-03-15")
 @click.option('--end', default=None, help="End date for time span search, e.g. 2016-03-17")
-@click.option('--format', default="nt", type=click.Choice(["nt", "turtle", "n3"]), help="RDFLib serialization format")
+@click.option('--format', default="turtle", type=click.Choice(["nt", "turtle", "n3"]), help="RDFLib serialization format")
 def get(organization, weeks, begin, end, format):
     console('Querying for %s.' % organization)
 
