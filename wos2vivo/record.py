@@ -78,7 +78,7 @@ class Record(object):
         return self._identifier("Eissn")
 
     def isbn(self):
-        return self._identifier("Eisbn")
+        return self._identifier("Isbn")
 
     """
     VIVO publication from WoS.
