@@ -37,8 +37,10 @@ def get_triples(org, weeks=1, span=None, format="turtle"):
     for num, rec in enumerate(records):
         g += rec.to_rdf()
 
-    console("{} records found for query. {} triples created.".format(num or 0, len(g)))
-    print output_graph(g, format=format)
+    trips = len(g)
+    console("{} records found for query. {} triples created.".format(num or 0, trips))
+    if trips > 0:
+        print output_graph(g, format=format)
 
 
 @click.command(help="Argument is the organization enhanced name from the Web of Science")
