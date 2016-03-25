@@ -9,6 +9,9 @@ from rdflib.resource import Resource
 from time import strptime
 from nameparser import HumanName
 
+import logging
+logger = logging.getLogger(__name__)
+
 # Namespaces
 D = Namespace(os.environ['DATA_NAMESPACE'])
 VIVO = Namespace('http://vivoweb.org/ontology/core#')
@@ -160,18 +163,20 @@ class Record(object):
         """
         g = Graph()
 
-        if self.in_book() is True:
+        isbn = self.isbn()
+        issn = self.issn() or self.eissn()
+
+        if isbn is not None:
             vtype = BIBO.Book
-            isbn = self.isbn()
-            if isbn is None:
-                raise Exception("Book can't have null ISBN for {}.".format(self.ut()))
             uri = D['venue-' + isbn]
-        else:
+        elif issn is not None:
             vtype = BIBO.Journal
-            issn = self.issn() or self.eissn()
-            if issn is None:
-                raise Exception("Journal can't have null ISSN for {}.".format(self.ut()))
             uri = D['venue-' + issn]
+        else:
+            # Place holder
+            logger.info("No source/venue ISSN or ISBN found for {}.".format(self.ut()))
+            vtype = BIBO.Journal
+            uri = D['venue-' + self.localid]
 
         venue = Resource(g, uri)
         venue.set(RDF.type, vtype)
