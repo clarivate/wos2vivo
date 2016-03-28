@@ -22,12 +22,18 @@ Or clone the repository and install.
 ```
 $ git clone https://github.com/lawlesst/wos2vivo.git
 $ cd wos2vivo
-$ pip install -r requirements
+$ python setup.py install
 ```
 
 ### usage
 
-The following environment variables are required to configure wos2vivo. For example:
+The following environment variables are required to configure wos2vivo. 
+
+* DATA_NAMESPACE - the namespace for your VIVO instance
+* WOS_USER - the username for accessing the Web of Science Web Services
+* WOS_PASSWORD - the password for accessing the Web of Science Web Services
+
+For example:
 ```
 # VIVO data namespace
 export DATA_NAMESPACE='http://vivo.school.edu/individual/'
