@@ -38,7 +38,7 @@ def get_triples(org, out_file, weeks=1, span=None, format="turtle"):
         g += rec.to_rdf()
 
     trips = len(g)
-    console("{} records found for query. {} triples created.".format(num or 0, trips))
+    console("{} records found. {} triples created.".format(num or 0, trips))
     if trips > 0:
         if file is not None:
             output_graph(g, destination=out_file, format=format)
@@ -54,8 +54,9 @@ def get_triples(org, out_file, weeks=1, span=None, format="turtle"):
 @click.option('--file', default=None, help="File to save triples to.")
 @click.option('--format', default="turtle", type=click.Choice(["nt", "turtle", "n3"]), help="RDFLib serialization format")
 def get(organization, weeks, begin, end, file, format):
-    out_file = file
+    console("\n{}\n".format('-' * 25))
 
+    out_file = file
     console('Querying for %s.' % organization)
 
     # Is this a date span query?
@@ -66,6 +67,8 @@ def get(organization, weeks, begin, end, file, format):
     else:
         console("Querying for {} weeks.".format(weeks))
         get_triples(organization, out_file, weeks=weeks, format=format)
+
+    console("\n{}\n".format('-' * 25))
 
 if __name__ == '__main__':
     get()
