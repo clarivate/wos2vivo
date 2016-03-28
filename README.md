@@ -4,11 +4,6 @@ Mapping publications from the Web of Science™ via [Web Services](http://ipscie
 
 This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
-The following is supported:
-- querying the Web of Science to find publications for a given organization using the [Organization Enhanced](https://images.webofknowledge.com/WOKRS511B5/help/WOS/hp_organizations_enhanced_index.html) name
-- specifying a date range for publications to retrieve
-- mapping this data to VIVO's RDF for loading into VIVO
-
 ###installation
 
 Python 2.7 is required. Install directly from Github:
@@ -80,7 +75,7 @@ All author information is mapped to VCARD Names. Local processes will have to be
 Install test dependencies first with `pip install -r tests/dev_requirements.txt`.
 
 ```
-$ python -m unittest discover tests/
+$ python -m unittest discover
 ```
 
 Tests will use [Betamax](http://betamax.readthedocs.org/en/latest/configuring.html) to record
