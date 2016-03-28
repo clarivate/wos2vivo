@@ -4,13 +4,11 @@ Mapping publications from the Web of Science™ via [Web Services](http://ipscie
 
 This requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
-### use case support
+### use cases
 This toolkit supports the following:
 - querying the Web of Science to find publications for a given organization using the [Organization Enhanced](https://images.webofknowledge.com/WOKRS511B5/help/WOS/hp_organizations_enhanced_index.html) name
 - specifying a date range for publications to retrieve
 - mapping this data to VIVO's RDF for loading into VIVO
-
-If you want use this code as a client to the Web of Science, feel free to explore the code base but the API is very likely to change.
 
 ###installation
 
@@ -28,16 +26,18 @@ $ cd wos2vivo
 $ pip install -r requirements
 ```
 
-###usage
+### usage
 
-* Set environment variables
+The following environment variables are required.
 ```
-$ cp .env.sample .env
-# adjust values to match your VIVO data namespace and Web of Science username and password
-$ source .env
+# VIVO data namespace
+export DATA_NAMESPACE='http://vivo.school.edu/individual/'
+# Web of Science Web Services username and password
+export WOS_USER='xxx'
+export WOS_PASSWORD='xxx'
 ```
 
-* run a harvest
+##### run a harvest 
 
 Only an organization name is required. See a full list of [Organization Enhanced Names](https://images.webofknowledge.com/WOKRS57B4/help/WOS/hs_organizations_enhanced.html) from the Web of Science.
 
@@ -56,14 +56,14 @@ Options:
   --format [nt|turtle|n3]  RDFLib serialization format
 ```
 
-* Example
+##### example
 Harvest records for the last two weeks and save to a file called pubs.ttl.
 
 ```
 $ wos2vivo "Your organization name." --weeks=2 --file=pubs.ttl
 ```
 
-###data mapping
+### data mapping
 
 The publication metadata is mapped from the [Web of Science](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/dataReturnedGroup/dataReturned.html) format to VIVO using the [VIVO-ISF](https://wiki.duraspace.org/display/VIVO/VIVO-ISF+1.6+relationship+diagrams%3A+Authorship) model (VIVO version 1.6 and later).
 
