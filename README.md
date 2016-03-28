@@ -4,15 +4,14 @@ Mapping publications from the Web of Science™ via [Web Services](http://ipscie
 
 This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
-### use cases
-This toolkit supports the following:
+The following is supported:
 - querying the Web of Science to find publications for a given organization using the [Organization Enhanced](https://images.webofknowledge.com/WOKRS511B5/help/WOS/hp_organizations_enhanced_index.html) name
 - specifying a date range for publications to retrieve
 - mapping this data to VIVO's RDF for loading into VIVO
 
 ###installation
 
-This toolkit requires Python 2.7. Install directly from Github:
+Python 2.7 is required. Install directly from Github:
 
 ```
 $ pip install git+https://github.com/lawlesst/wos2vivo.git
@@ -67,7 +66,7 @@ $ wos2vivo "Your organization name." --weeks=2 --file=pubs.ttl
 
 The publication metadata is mapped from the [Web of Science](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/dataReturnedGroup/dataReturned.html) format to VIVO using the [VIVO-ISF](https://wiki.duraspace.org/display/VIVO/VIVO-ISF+1.6+relationship+diagrams%3A+Authorship) model (VIVO version 1.6 and later).
 
-All author data is mapped to VCARD Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
+All author information is mapped to VCARD Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
 
 ###development
 
