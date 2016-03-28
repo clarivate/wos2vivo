@@ -46,7 +46,7 @@ def get_triples(org, out_file, weeks=1, span=None, format="turtle"):
             print output_graph(g, format=format)
 
 
-@click.command(help="Argument is the organization enhanced name from the Web of Science")
+@click.command(help="Pass in the organization enhanced name from the Web of Science")
 @click.argument('organization')
 @click.option('--weeks', default="1", type=click.Choice(["1", "2", "4"]), help='Number of previous weeks to search Web of Science.')
 @click.option('--begin', default=None, help="Start date for time span search, e.g. 2016-03-15")
