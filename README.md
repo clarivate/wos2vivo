@@ -12,21 +12,23 @@ This toolkit supports the following:
 
 If you want use this code as a client to the Web of Science, feel free to explore the code base but the API is very likely to change.
 
-###usage
+###installation
 
-This toolkit requires Python 2.7.
+This toolkit requires Python 2.7. Install directly from Github:
 
-* Clone the git repository:
+```
+$ pip install git+https://github.com/lawlesst/wos2vivo.git
+```
+
+Or clone the repository and install.
 
 ```
 $ git clone https://github.com/lawlesst/wos2vivo.git
-```
-
-* Install the Python dependencies
-```
 $ cd wos2vivo
 $ pip install -r requirements
 ```
+
+###usage
 
 * Set environment variables
 ```
@@ -35,13 +37,39 @@ $ cp .env.sample .env
 $ source .env
 ```
 
-* Modify `example.py`
+* run a harvest
 
-This example shows how the web service can be called. A user query and time span is required.
-A `record.py` object will be returned. To convert to VIVO rdf call the `to_rdf` method.
+Only an organization name is required. See a full list of [Organization Enhanced Names](https://images.webofknowledge.com/WOKRS57B4/help/WOS/hs_organizations_enhanced.html) from the Web of Science.
+
+```
+$ wos2vivo --help
+
+Usage: wos2vivo [OPTIONS] ORGANIZATION
+
+  Pass in the organization enhanced name from the Web of Science
+
+Options:
+  --weeks [1|2|4]          Number of previous weeks to search Web of Science.
+  --begin TEXT             Start date for time span search, e.g. 2016-03-15
+  --end TEXT               End date for time span search, e.g. 2016-03-17
+  --file TEXT              File to save triples to.
+  --format [nt|turtle|n3]  RDFLib serialization format
+```
+
+* Example
+Harvest records for the last two weeks and save to a file called pubs.ttl.
+
+```
+$ wos2vivo "Your organization name." --weeks=2 --file=pubs.ttl
+```
+
+###data mapping
+
+The publication metadata is mapped from the [Web of Science](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/dataReturnedGroup/dataReturned.html) format to VIVO using the [VIVO-ISF](https://wiki.duraspace.org/display/VIVO/VIVO-ISF+1.6+relationship+diagrams%3A+Authorship) model (VIVO version 1.6 and later).
+
+All author data is mapped to VCARD Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
 
 ###development
-
 
 #### running the tests
 Install test dependencies first with `pip install -r tests/dev_requirements.txt`.
