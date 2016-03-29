@@ -13,7 +13,7 @@ setup(
     include_package_data=True,
     entry_points='''
         [console_scripts]
-        wos2vivo=command:get
+        wos2vivo=wos2vivo.command:get
     ''',
 )
 
