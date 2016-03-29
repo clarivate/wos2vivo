@@ -40,7 +40,7 @@ def get_triples(org, out_file, weeks=1, span=None, format="turtle"):
     trips = len(g)
     console("{} records found. {} triples created.".format(num or 0, trips))
     if trips > 0:
-        if file is not None:
+        if out_file is not None:
             output_graph(g, destination=out_file, format=format)
         else:
             print output_graph(g, format=format)
