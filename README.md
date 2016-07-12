@@ -1,6 +1,6 @@
 ##wos2vivo
 
-Mapping publications from the Web of Science™ via [Web Services](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/WebServicesLiteOverviewGroup/Introduction.html) to [VIVO](http://vivoweb.org)
+Mapping publications from the Web of Science™ via [Web Services](http://ip-science.interest.thomsonreuters.com/data-integration#web-of-science-web-services-lite) to [VIVO](http://vivoweb.org)
 
 This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
