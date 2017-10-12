@@ -2,7 +2,7 @@
 
 Mapping publications from the Web of Science™ via [Web Services Lite](http://ip-science.interest.thomsonreuters.com/data-integration#web-of-science-web-services-lite) to [VIVO](http://vivoweb.org)
 
-This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
+This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@clarivate.com`.
 
 ### installation
 
