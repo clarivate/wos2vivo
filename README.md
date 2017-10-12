@@ -1,10 +1,10 @@
-##wos2vivo
+## wos2vivo
 
 Mapping publications from the Web of Science™ via [Web Services Lite](http://ip-science.interest.thomsonreuters.com/data-integration#web-of-science-web-services-lite) to [VIVO](http://vivoweb.org)
 
 This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@thomsonreuters.com`.
 
-###installation
+### installation
 
 Python 2.7 is required. Install directly from Github:
 
@@ -69,7 +69,7 @@ The publication metadata is mapped from the [Web of Science](http://ipscience-he
 
 All author information is mapped to VCARD Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
 
-###development
+### development
 
 #### running the tests
 Install test dependencies first with `pip install -r tests/dev_requirements.txt`.
