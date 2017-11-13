@@ -67,7 +67,51 @@ $ wos2vivo "Your organization name." --weeks=2 --file=pubs.ttl
 
 The publication metadata is mapped from the [Web of Science](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/dataReturnedGroup/dataReturned.html) format to VIVO using the [VIVO-ISF](https://wiki.duraspace.org/x/P76dB) model (VIVO version 1.6 and later).
 
-All author information is mapped to vCard Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
+Example output:
+```
+d:pub-WOS-000411369700071 a bibo:AcademicArticle ;
+    rdfs:label "Coherent J/psi photoproduction in ultra-peripheral PbPb collisions at root s(NN)=2.76 TeV with the CMS experiment" ;
+    obo:ARG_2000028 d:vcard-individual-pub-WOS-000411369700071 ;
+    bibo:doi "10.1016/j.physletb.2017.07.001" ;
+    bibo:end "511" ;
+    bibo:start "489" ;
+    bibo:volume "772" ;
+    vivo:dateTimeValue d:date-WOS-000411369700071 ;
+    vivo:hasPublicationVenue d:venue-0370-2693 ;
+    vivo:identifier "WOS:000411369700071" .
+
+d:authorship-1-WOS-000411369700071 a vivo:Authorship ;
+    vivo:rank 1 ;
+    vivo:relates d:pub-WOS-000411369700071,
+        d:vcard-individual-1-WOS-000411369700071 .
+
+d:vcard-individual-1-WOS-000411369700071 a vcard:Individual ;
+    vcard:hasName d:vcard-name-1-WOS-000411369700071 .
+
+d:vcard-name-1-WOS-000411369700071 a vcard:Name ;
+    rdfs:label "Khachatryan, V." ;
+    vcard:familyName "Khachatryan" ;
+    vcard:givenName "V." .
+
+d:vcard-individual-pub-WOS-000411369700071 a vcard:Individual ;
+    vcard:hasURL d:vcard-url-pub-WOS-000411369700071 .
+
+d:vcard-url-pub-WOS-000411369700071 a vcard:URL ;
+    rdfs:label "Web of Science™" ;
+    vcard:url "http://ws.isiknowledge.com/cps/openurl/service?url_ver=Z39.88-2004&rft_id=info:ut/WOS:WOS:000411369700071" .
+
+d:venue-0370-2693 a bibo:Journal ;
+    rdfs:label "PHYSICS LETTERS B" ;
+    bibo:issn "0370-2693" .
+
+d:date-WOS-000411369700071 a vivo:DateTimeValue ;
+    rdfs:label "SEP, 2017" ;
+    vivo:dateTime "2017-9"^^xsd:dayMonth ;
+    vivo:dateTimePrecision vivo:yearMonthPrecision .
+
+```
+
+All author information is mapped to vCard Names. Local processes will have to be developed to merge the vCards to foaf:Person researcher resources in your VIVO system.
 
 ### development
 
