@@ -1,6 +1,6 @@
 ## wos2vivo
 
-Mapping publications from the Web of Science™ via [Web Services Lite](http://ip-science.interest.thomsonreuters.com/data-integration#web-of-science-web-services-lite) to [VIVO](http://vivoweb.org)
+Mapping publications from the Web of Science™ via [Web Services Lite](https://clarivate.com/products/data-integration/) to [VIVO](http://vivoweb.org)
 
 This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@clarivate.com`.
 
@@ -39,7 +39,7 @@ export WOS_PASSWORD='xxx'
 
 ##### run a harvest 
 
-Only an organization name is required. See a full list of [Organization Enhanced Names](https://images.webofknowledge.com/WOKRS57B4/help/WOS/hs_organizations_enhanced.html) from the Web of Science.
+Only an organization name is required. See more information on [Organization Enhanced Names](https://images.webofknowledge.com/images/help/WOS/hp_organizations_enhanced_index.html) from the Web of Science.
 
 ```
 $ wos2vivo --help
@@ -65,9 +65,9 @@ $ wos2vivo "Your organization name." --weeks=2 --file=pubs.ttl
 
 ### data mapping
 
-The publication metadata is mapped from the [Web of Science](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/dataReturnedGroup/dataReturned.html) format to VIVO using the [VIVO-ISF](https://wiki.duraspace.org/display/VIVO/VIVO-ISF+1.6+relationship+diagrams%3A+Authorship) model (VIVO version 1.6 and later).
+The publication metadata is mapped from the [Web of Science](http://ipscience-help.thomsonreuters.com/wosWebServicesLite/dataReturnedGroup/dataReturned.html) format to VIVO using the [VIVO-ISF](https://wiki.duraspace.org/x/P76dB) model (VIVO version 1.6 and later).
 
-All author information is mapped to VCARD Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
+All author information is mapped to vCard Names. Local processes will have to be developed to merge the VCARDs to researcher resources in your VIVO system.
 
 ### development
 
@@ -78,8 +78,6 @@ Install test dependencies first with `pip install -r tests/dev_requirements.txt`
 $ python -m unittest discover
 ```
 
-Tests will use [Betamax](http://betamax.readthedocs.org/en/latest/configuring.html) to record
-HTTP interactions. This allows us to run the tests without actually hitting the web service and
-to keep the sample data stable.
+Tests will use [Betamax](http://betamax.readthedocs.org/en/latest/configuring.html) to record HTTP interactions. This allows us to run the tests without actually hitting the web service and to keep the sample data stable.
 
 Feedback, bug reports and pull requests welcome.
