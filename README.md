@@ -9,13 +9,13 @@ This tool requires access to the Web of Science Web Services. If your organizati
 Python 2.7 is required. Install directly from Github:
 
 ```
-$ pip install git+https://github.com/lawlesst/wos2vivo.git
+$ pip install git+https://github.com/Clarivate-SAR/wos2vivo.git
 ```
 
 Or clone the repository and install.
 
 ```
-$ git clone https://github.com/lawlesst/wos2vivo.git
+$ git clone https://github.com/Clarivate-SAR/wos2vivo.git
 $ cd wos2vivo
 $ python setup.py install
 ```
