@@ -50,30 +50,30 @@ class TestWos(TestCase):
             rsp = session.query(query.to_string())
 
             qrsp = QueryResponse(rsp)
-            assert qrsp.found == 3
+            assert qrsp.found == 33
             assert qrsp.has_more() is True
 
             # Check a record
             rec = qrsp.records[0]
             # Test returned metadata.
-            self.assertEqual(rec.ut(), "WOS:000370312100013")
-            self.assertTrue(rec.title().find('Bos taurus cows')> -1)
-            self.assertEqual(rec.doi(), "10.1016/j.theriogenology.2015.10.035")
+            self.assertEqual(rec.ut(), "WOS:000371581900197")
+            self.assertTrue(rec.title().find('Parotid-area Lymph Nodes')> -1)
+            self.assertEqual(rec.doi(), "10.1016/j.ijrobp.2015.12.247")
 
             # Test RDF output
             uri = rec.pub_uri
             g = rec.to_rdf()
             self.assertEqual(
                 g.value(subject=uri, predicate=VIVO.identifier),
-                Literal("WOS:000370312100013")
+                Literal("WOS:000371581900197")
             )
             self.assertEqual(
                 g.value(subject=uri, predicate=RDFS.label),
-                Literal("Select Synch and Co-Synch protocols using a CIDR yield similar pregnancy rates after a fixed-time insemination in suckled Bos indicus x Bos taurus cows")
+                Literal("Elective Neck Management for Squamous Cell Carcinoma Metastatic to the Parotid-area Lymph Nodes")
             )
             self.assertEqual(
                 g.value(subject=uri, predicate=BIBO.doi),
-                Literal('10.1016/j.theriogenology.2015.10.035')
+                Literal('10.1016/j.ijrobp.2015.12.247')
             )
             # Test number of authorships
             for row in g.query("""
@@ -86,7 +86,7 @@ class TestWos(TestCase):
                                initBindings=dict(pub=uri),
                                initNs=(dict(vivo=VIVO, vcard=VCARD))
                                ):
-                assert row.authors.toPython() == 5
+                assert row.authors.toPython() == 6
 
             # web link
             for row in g.query("""

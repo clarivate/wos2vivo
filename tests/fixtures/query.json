@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2016-03-25T17:50:09",
+      "recorded_at": "2018-02-23T21:02:51",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -13,7 +13,7 @@
           "Authorization": "Basic <base64 encoded WoS username:password>",
           "Connection": "keep-alive",
           "Content-Length": "235",
-          "User-Agent": "python-requests/2.7.0 CPython/2.7.6 Linux/3.13.0-24-generic"
+          "User-Agent": "python-requests/2.18.4"
         },
         "method": "POST",
         "uri": "http://search.webofknowledge.com/esti/wokmws/ws/WOKMWSAuthenticate?wsdl"
@@ -21,14 +21,15 @@
       "response": {
         "body": {
           "encoding": "ISO-8859-1",
-          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:authenticateResponse xmlns:ns2=\"http://auth.cxf.wokmws.thomsonreuters.com\"><return>4W32u6imdm1rb8spMKs</return></ns2:authenticateResponse></soap:Body></soap:Envelope>"
+          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:authenticateResponse xmlns:ns2=\"http://auth.cxf.wokmws.thomsonreuters.com\"><return>8FEApdFgFw8nuwQHrFY</return></ns2:authenticateResponse></soap:Body></soap:Envelope>"
         },
         "headers": {
-          "content-length": "252",
-          "content-type": "text/xml;charset=ISO-8859-1",
-          "date": "Fri, 25 Mar 2016 17:50:10 GMT",
-          "server": "Apache-Coyote/1.1",
-          "set-cookie": "SID=4W32u6imdm1rb8spMKs"
+          "Connection": "keep-alive",
+          "Content-Length": "252",
+          "Content-Type": "text/xml;charset=ISO-8859-1",
+          "Date": "Fri, 23 Feb 2018 21:02:51 GMT",
+          "Server": "Apache-Coyote/1.1",
+          "Set-Cookie": "SID=8FEApdFgFw8nuwQHrFY"
         },
         "status": {
           "code": 200,
@@ -38,7 +39,7 @@
       }
     },
     {
-      "recorded_at": "2016-03-25T17:50:10",
+      "recorded_at": "2018-02-23T21:02:52",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -49,8 +50,8 @@
           "Accept-Encoding": "gzip, deflate",
           "Connection": "keep-alive",
           "Content-Length": "623",
-          "Cookie": "SID=4W32u6imdm1rb8spMKs",
-          "User-Agent": "python-requests/2.7.0 CPython/2.7.6 Linux/3.13.0-24-generic"
+          "Cookie": "SID=8FEApdFgFw8nuwQHrFY",
+          "User-Agent": "python-requests/2.18.4"
         },
         "method": "POST",
         "uri": "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite?wsdl"
@@ -58,13 +59,14 @@
       "response": {
         "body": {
           "encoding": "ISO-8859-1",
-          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:searchResponse xmlns:ns2=\"http://woksearchlite.v3.wokmws.thomsonreuters.com\"><return><queryId>1</queryId><recordsFound>3</recordsFound><recordsSearched>2534</recordsSearched><records><uid>WOS:000370312100013</uid><title><label>Title</label><value>Select Synch and Co-Synch protocols using a CIDR yield similar pregnancy rates after a fixed-time insemination in suckled Bos indicus x Bos taurus cows</value></title><source><label>Issue</label><value>5</value></source><source><label>Pages</label><value>870-876</value></source><source><label>Published.BiblioDate</label><value>MAR 15</value></source><source><label>Published.BiblioYear</label><value>2016</value></source><source><label>SourceTitle</label><value>THERIOGENOLOGY</value></source><source><label>Volume</label><value>85</value></source><authors><label>Authors</label><value>Esterman, Regina D.</value><value>Alava, Erin N.</value><value>Austin, Brad R.</value><value>Hersom, Matthew J.</value><value>Yelich, Joel V.</value></authors><keywords><label>Keywords</label><value>Artificial insemination</value><value>Beef</value><value>Bos indicus</value><value>Controlled internal drug release</value><value>Estrous synchronization</value></keywords><other><label>Contributor.ResearcherID.Names</label><value>Padovani, Carlos Roberto</value></other><other><label>Contributor.ResearcherID.ResearcherIDs</label><value>A-3656-2013</value></other><other><label>Identifier.Doi</label><value>10.1016/j.theriogenology.2015.10.035</value></other><other><label>Identifier.Eissn</label><value>1879-3231</value></other><other><label>Identifier.Ids</label><value>DE0JV</value></other><other><label>Identifier.Issn</label><value>0093-691X</value></other><other><label>ResearcherID.Disclaimer</label><value>ResearcherID data provided by Thomson Reuters</value></other></records></return></ns2:searchResponse></soap:Body></soap:Envelope>"
+          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:searchResponse xmlns:ns2=\"http://woksearchlite.v3.wokmws.thomsonreuters.com\"><return><queryId>1</queryId><recordsFound>33</recordsFound><recordsSearched>6737</recordsSearched><records><uid>WOS:000371581900197</uid><title><label>Title</label><value>Elective Neck Management for Squamous Cell Carcinoma Metastatic to the Parotid-area Lymph Nodes</value></title><doctype><label>Doctype</label><value>Meeting Abstract</value></doctype><source><label>Issue</label><value>4</value></source><source><label>Pages</label><value>932-932</value></source><source><label>Published.BiblioDate</label><value>MAR 15</value></source><source><label>Published.BiblioYear</label><value>2016</value></source><source><label>SourceTitle</label><value>INTERNATIONAL JOURNAL OF RADIATION ONCOLOGY BIOLOGY PHYSICS</value></source><source><label>Volume</label><value>94</value></source><authors><label>Authors</label><value>Herman, M. P.</value><value>Amdur, R. J.</value><value>Werning, J. W.</value><value>Dziegielewski, P. T.</value><value>Morris, C. G.</value><value>Mendenhall, W. M.</value></authors><other><label>Identifier.Eissn</label><value>1879-355X</value></other><other><label>Identifier.Ids</label><value>DF8BM</value></other><other><label>Identifier.Issn</label><value>0360-3016</value></other><other><label>Identifier.Xref_Doi</label><value>10.1016/j.ijrobp.2015.12.247</value></other><other><label>ResearcherID.Disclaimer</label><value>ResearcherID data provided by Clarivate Analytics</value></other></records></return></ns2:searchResponse></soap:Body></soap:Envelope>"
         },
         "headers": {
-          "content-length": "1964",
-          "content-type": "text/xml;charset=ISO-8859-1",
-          "date": "Fri, 25 Mar 2016 17:50:09 GMT",
-          "server": "Apache-Coyote/1.1"
+          "Connection": "keep-alive",
+          "Content-Length": "1645",
+          "Content-Type": "text/xml;charset=ISO-8859-1",
+          "Date": "Fri, 23 Feb 2018 21:02:51 GMT",
+          "Server": "Apache-Coyote/1.1"
         },
         "status": {
           "code": 200,
@@ -72,7 +74,44 @@
         },
         "url": "http://search.webofknowledge.com/esti/wokmws/ws/WokSearchLite?wsdl"
       }
+    },
+    {
+      "recorded_at": "2018-02-23T21:02:52",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": "\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:auth=\"http://auth.cxf.wokmws.thomsonreuters.com\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <auth:closeSession/>\n   </soapenv:Body>\n</soapenv:Envelope>\n"
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
+          "Connection": "keep-alive",
+          "Content-Length": "238",
+          "Cookie": "SID=8FEApdFgFw8nuwQHrFY",
+          "User-Agent": "python-requests/2.18.4"
+        },
+        "method": "POST",
+        "uri": "http://search.webofknowledge.com/esti/wokmws/ws/WOKMWSAuthenticate?wsdl"
+      },
+      "response": {
+        "body": {
+          "encoding": "ISO-8859-1",
+          "string": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:closeSessionResponse xmlns:ns2=\"http://auth.cxf.wokmws.thomsonreuters.com\"/></soap:Body></soap:Envelope>"
+        },
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Length": "190",
+          "Content-Type": "text/xml;charset=ISO-8859-1",
+          "Date": "Fri, 23 Feb 2018 21:02:52 GMT",
+          "Server": "Apache-Coyote/1.1"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "http://search.webofknowledge.com/esti/wokmws/ws/WOKMWSAuthenticate?wsdl"
+      }
     }
   ],
-  "recorded_with": "betamax/0.5.1"
+  "recorded_with": "betamax/0.8.0"
 }
