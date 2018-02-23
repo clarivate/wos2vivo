@@ -47,7 +47,10 @@ class Record(object):
                 return item.find('value').text
 
     def doi(self):
-        return self._identifier('Doi')
+        doi = self._identifier('Doi')
+        if doi is None:
+            doi = self._identifier('Xref_Doi')
+        return doi
 
     def _source(self, label):
         for item in self.root.findall('source'):
