@@ -145,14 +145,14 @@ class Record(object):
             de.set(RDFS.label, Literal("{}, {}".format(month, year)))
             de.set(
                 VIVO.dateTime,
-                Literal("{}-{}".format(year, month_num), datatype=XSD.dayMonth)
+                Literal("{}-{}-01T00:00:00".format(year, month_num), datatype=XSD.dateTime)
             )
             de.set(VIVO.dateTimePrecision, VIVO.yearMonthPrecision)
         else:
             de.set(RDFS.label, Literal(year))
             de.set(
                 VIVO.dateTime,
-                Literal("{}".format(year), datatype=XSD.year)
+                Literal("{}-01-01T00:00:00".format(year), datatype=XSD.dateTime)
             )
             de.set(VIVO.dateTimePrecision, VIVO.yearPrecision)
 
