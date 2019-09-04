@@ -18,6 +18,7 @@ VIVO = Namespace('http://vivoweb.org/ontology/core#')
 BIBO = Namespace('http://purl.org/ontology/bibo/')
 OBO = Namespace('http://purl.obolibrary.org/obo/')
 VCARD = Namespace('http://www.w3.org/2006/vcard/ns#')
+WOS = Namespace('http://webofscience.com/ontology/wos#')
 
 
 class Record(object):
@@ -275,9 +276,10 @@ class Record(object):
         pub = Resource(g, self.pub_uri)
         pub.set(RDF.type, self.vivo_type())
         pub.set(RDFS.label, Literal(self.title()))
-        # WoS UT. Map to VIVO.identifier for now.
-        # ToDo: this should be a more specific property
-        pub.set(VIVO.identifier, Literal(self.ut()))
+        # WoS UT. Uncomment if you wish to map to generic VIVO.identifier
+        #pub.set(VIVO.identifier, Literal(self.ut()))
+        # Map WoS UT to customer property. Used by other Web of Science Group Python tools
+        pub.set(WOS.wosId, Literal(self.ut().replace('WOS:','')))
         # DOI
         doi = self.doi()
         if doi is not None:
