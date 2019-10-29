@@ -2,7 +2,7 @@
 
 Mapping publications from the Web of Science™ via [Web Services Lite](https://clarivate.com/products/data-integration/) to [VIVO](http://vivoweb.org)
 
-This tool requires access to the Web of Science Web Services. If your organization subscribes to the Web of Science and would like a username and password to use the Web Services, please email `research.networking@clarivate.com`.
+This tool requires access to the Web of Science Web Services. For more information on Web of Sciences APIs, visit https://clarivate.com/webofsciencegroup/solutions/xml-and-apis/. 
 
 ### installation
 
