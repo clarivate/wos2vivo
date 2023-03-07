@@ -1,8 +1,10 @@
 ## wos2vivo
 
+**Note, the Web of Science Lite (SOAP) API, which this library uses, is deprecated and scheduled to be sunset on November 1, 2023. It has been replaced by the Web of Science [Starter API](https://developer.clarivate.com/apis/wos-starter). This library will be archived following the sunset date.**
+
 Mapping publications from the Web of Science™ via [Web Services Lite](https://clarivate.com/products/data-integration/) to [VIVO](http://vivoweb.org)
 
-This tool requires access to the Web of Science Web Services. For more information on Web of Sciences APIs, visit https://clarivate.com/webofsciencegroup/solutions/xml-and-apis/. 
+This tool requires access to the Web of Science Web Services. For more information on Web of Sciences APIs, visit https://clarivate.com/webofsciencegroup/solutions/xml-and-apis/.
 
 ### installation
 
@@ -22,7 +24,7 @@ $ python setup.py install
 
 ### usage
 
-The following environment variables are required to configure wos2vivo. 
+The following environment variables are required to configure wos2vivo.
 
 * DATA_NAMESPACE - the namespace for your VIVO instance
 * WOS_USER - the username for accessing the Web of Science Web Services
@@ -37,7 +39,7 @@ export WOS_USER='xxx'
 export WOS_PASSWORD='xxx'
 ```
 
-##### run a harvest 
+##### run a harvest
 
 Only an organization name is required. See more information on [Organization Enhanced Names](https://images.webofknowledge.com/images/help/WOS/hp_organizations_enhanced_index.html) from the Web of Science.
 
